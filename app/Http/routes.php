@@ -51,12 +51,39 @@ Route::get('/home', 'HomeController@index');
 Route::get('users', 'UserController@index');
 
 Route::get('banks', 'BankController@index');
+
 Route::get('banks/create', 'BankController@create');
 Route::post('banks', 'BankController@store');
+Route::get('banks/{id}', 'BankController@show');
 Route::get('banks/{id}/edit', 'BankController@edit');
 Route::post('banks/{id}/edit', 'BankController@update');
+Route::get('banks/{id}/delete', 'BankController@destroy');
 
 Route::get('branchs', 'BranchController@index');
+Route::post('branchs', 'BranchController@store');
+Route::get('branch/create', 'BranchController@create');
+Route::get('branch/{id}', 'BranchController@show');
+Route::get('branch/{id}/edit', 'BranchController@edit');
+Route::post('branch/{id}/edit', 'BranchController@update');
+Route::get('branch/{id}/delete', 'BranchController@destroy');
+
+
+Route::get('tax', 'TaxController@index');
+Route::post('tax', 'TaxController@store');
+Route::get('tax/create', 'TaxController@create');
+Route::get('tax/{id}', 'TaxController@show');
+Route::get('tax/{id}/edit', 'TaxController@edit');
+Route::post('tax/{id}/edit', 'TaxController@update');
+Route::get('tax/{id}/delete', 'TaxController@destroy');
+
+Route::get('taxtrates', 'TaxRateController@index');
+Route::post('taxtrates', 'TaxRateController@store');
+Route::get('taxtrates/create', 'TaxRateController@create');
+Route::get('taxtrates/{id}', 'TaxRateController@show');
+Route::get('taxtrates/{id}/edit', 'TaxRateController@edit');
+Route::post('taxtrates/{id}/edit', 'TaxRateController@update');
+Route::get('taxtrates/{id}/delete', 'TaxRateController@destroy');
+
 
 
 

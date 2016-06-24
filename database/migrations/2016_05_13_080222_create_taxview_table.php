@@ -14,8 +14,8 @@ class CreateTaxviewTable extends Migration
     {
         Schema::create('taxviews', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('TaxName');
-            $table->float('TaxAmount');
+            $table->string('tax_name');
+            $table->float('tax_amount');
             $table->timestamps();
         });
     }

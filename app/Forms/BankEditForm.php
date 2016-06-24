@@ -11,10 +11,14 @@ class BankEditForm extends Form
         $this
             ->add('bank_name', 'text',[
                 'rules' => 'required|min:5',
-                'attr' => ['class' => 'form-control input-sm']
+                'attr' => ['class' => 'form-control input-sm'],
+                'value'=> $this->getData('user_data.bank_name')
             ])
             ->add('bank_type', 'select',[
                 'rules' => 'required',
+                'choices' => ['Government' => 'Government', 'Private' => 'Private'],
+                'selected' => $this->getData('user_data.bank_type'),
+                'empty_value' => '=== Select Bank Type ===',
                 'attr' => ['class' => 'form-control input-sm']
             ])
             ->add('Update', 'submit', [

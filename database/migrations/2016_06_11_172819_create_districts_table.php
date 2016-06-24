@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTaxtypesTable extends Migration
+class CreateDistrictsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,14 @@ class CreateTaxtypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tax_types', function (Blueprint $table) {
+        Schema::create('districts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tax_type_name');
-            $table->string('deduct_on');
-            $table->string('yearly_calculate');
-            $table->softDeletes();
+            $table->integer('division_id');
+            $table->text('name');
+            $table->text('bn_name');
+            $table->double('lat');
+            $table->double('lon');
+            $table->text('website');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateTaxtypesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tax_types');
+        Schema::drop('districts');
     }
 }

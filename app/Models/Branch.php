@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,7 +14,7 @@ class Branch extends Model
 
     public function bank()
     {
-        return $this->belongsTo('App\Bank','bank_id', 'id');
+        return $this->belongsTo('App\Models\Bank','bank_id', 'id');
     }
 
     public function getBankNameAttribute($value)

@@ -14,7 +14,7 @@ class BankCreateForm extends Form
                 'attr' => ['class' => 'form-control input-sm']
                 ])
             ->add('bank_type', 'select',[
-                'rules'=>'required','choices'=>['1'=>'Government'],
+                'rules'=>'required','choices'=>['Government'=>'Government','Private'=>'Private'],
                 'empty_value' => '=== Select Bank Type ==='
                 ])
             ->add('save', 'submit', [

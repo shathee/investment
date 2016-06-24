@@ -14,13 +14,13 @@ class CreateTaxratesTable extends Migration
     {
         Schema::create('taxrates', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('TaxRateID');
-            $table->integer('TaxTypeID');
-            $table->date('ImplementDate');
-            $table->string('FromAmount');
-            $table->string('ToAmount');
-            $table->string('TaxRateTaka');
-            $table->string('TaxRatePercent');
+            $table->integer('tax_type_id');
+            $table->date('implement_date');
+            $table->string('from_amount');
+            $table->string('to_amount');
+            $table->string('tax_rate_taka');
+            $table->string('tax_rate_percent');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

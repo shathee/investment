@@ -14,9 +14,10 @@ class CreateTaxdeductsTable extends Migration
     {
         Schema::create('taxdeducts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('TaxTypeID');
-            $table->integer('RenEncID');
-            $table->float('TaxDedAmount');
+            $table->integer('tax_type_id');
+            $table->integer('ren_enc_id');
+            $table->float('tax_ded_amount');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -14,10 +14,9 @@ class CreateInvestmenttypesTable extends Migration
     {
         Schema::create('investmenttypes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('InvestmentTypeID');
-            $table->string('InvestmentHead');
-            $table->string('InvestmentFeature');
-            $table->string('Remarks');
+            $table->string('investment_head');
+            $table->string('investment_feature');
+            $table->string('remarks');
             $table->timestamps();
         });
     }

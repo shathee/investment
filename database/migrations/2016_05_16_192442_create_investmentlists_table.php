@@ -14,17 +14,16 @@ class CreateInvestmentlistsTable extends Migration
     {
         Schema::create('investmentlists', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('InvestmentListID');
-            $table->integer('InvestmentTypeID');
-            $table->integer('FundID');
-            $table->date('OLDate');
-            $table->date('OLNo');
-            $table->string('OLFileNo');
-            $table->date('FPLDate');
-            $table->integer('FPLNo');
-            $table->string('FPLFileNo');
-            $table->float('EorR');
-            $table->string('Posted');
+            $table->integer('investment_type');
+            $table->integer('fund_id');
+            $table->date('old_date');
+            $table->date('old_no');
+            $table->string('old_file_no');
+            $table->date('fpl_date');
+            $table->integer('fpl_no');
+            $table->string('fpl_file_no');
+            $table->float('eorr');
+            $table->string('posted');
 
 
             $table->timestamps();

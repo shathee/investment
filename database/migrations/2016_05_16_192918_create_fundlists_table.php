@@ -14,13 +14,12 @@ class CreateFundlistsTable extends Migration
     {
         Schema::create('fundlists', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('FundID');
-            $table->integer('BranchID');
-            $table->string('FundName');
-            $table->string('FundDesc');
-            $table->string('FundAccNo');
-            $table->float('FundStartBalance');
-            $table->date('FundStartDate');
+            $table->integer('branch_id');
+            $table->string('fund_name');
+            $table->string('fund_desc');
+            $table->string('fund_acc_no');
+            $table->float('fund_start_balance');
+            $table->date('fund_start_date');
             $table->timestamps();
         });
     }
