@@ -15,6 +15,7 @@ class Bank extends Model
     {
         return $this->hasMany('App\Models\Branch');
     }
+
     public function getBankNameAttribute($value)
     {
         return ucfirst($value);

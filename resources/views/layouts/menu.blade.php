@@ -24,7 +24,7 @@
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                         <li><a href="{{ url('/tax') }}">Tax Types</a></li>
-                        <li><a href="{{ url('/taxtrates') }}">Tax Rates</a></li>
+                        <li><a href="{{ url('/taxrates') }}">Tax Rates</a></li>
                     </ul>
                 </li>
                 <li  class="dropdown">
@@ -33,13 +33,14 @@
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="{{ url('/fund') }}">Funds</a></li>
+                        <li><a href="{{ url('/fundlist') }}">Funds</a></li>
                         <li><a href="{{ url('/investment') }}">Investments</a></li>
                     </ul>
                 </li>
-                @if (!Auth::guest())
-                    <li class="pull-right"><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                @endif
+
+                <li class="pull-right"><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                <li class="pull-right"><a href="{{ url('/trash') }}"><i class="fa fa-btn glyphicon glyphicon-trash"></i>Trash</a></li>
+
 
             </ul>
 

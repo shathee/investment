@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Models\TaxRate;
+use App\Models\Taxtype;
+
+use Kris\LaravelFormBuilder\FormBuilder;
 
 class TaxRateController extends Controller
 {
@@ -26,9 +29,17 @@ class TaxRateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(FormBuilder $formBuilder)
     {
+        $data['title'] = "Enter New Tax Rate";
+        $data['taxtypes'] = Taxtype::lists('tax_type_name','id')->all();
+        $data['form'] = $formBuilder->create('App\Forms\TaxRateCreateForm', [
+            'method' => 'POST',
+            'url' => 'taxrates'
+        ],['taxtypes'=>$data['taxtypes']]
+        );
 
+        return view('taxrate.create', $data);
     }
 
     /**
@@ -39,7 +50,20 @@ class TaxRateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $taxrate = new TaxRate();
+
+        $taxrate->tax_type_id = $request->tax_type_name;
+        $taxrate->implement_date = $request->implement_date;
+        $taxrate->from_amount = $request->from_amount;
+        $taxrate->to_amount = $request->to_amount;
+        $taxrate->tax_rate_taka = $request->tax_rate_amount;
+        $taxrate->tax_rate_percent = $request->tax_rate_percent;
+
+
+        $taxrate->save();
+        $request->session()->flash('alert-success', 'Tax Rate was successful Created!');
+        return redirect('taxrates');
     }
 
     /**
@@ -50,7 +74,7 @@ class TaxRateController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -59,9 +83,19 @@ class TaxRateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, FormBuilder $formBuilder)
     {
-        //
+        $data['title'] = "Enter New Tax Rate";
+        $data['taxrates'] = TaxRate::find($id);
+
+        $data['taxtypes'] = Taxtype::lists('tax_type_name','id')->all();
+        $data['form'] = $formBuilder->create('App\Forms\TaxRateEditForm', [
+            'method' => 'POST',
+            'url' => 'taxrates/'.$id.'/edit'
+        ],['taxtypes'=>$data['taxtypes'],'taxrate'=>$data['taxrates']]
+        );
+
+        return view('taxrate.edit', $data);
     }
 
     /**
@@ -73,7 +107,17 @@ class TaxRateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $taxrate = TaxRate::find($id);
+        $taxrate->tax_type_id = $request->tax_type_name;
+        $taxrate->implement_date = $request->implement_date;
+        $taxrate->from_amount = $request->from_amount;
+        $taxrate->to_amount = $request->to_amount;
+        $taxrate->tax_rate_taka = $request->tax_rate_amount;
+        $taxrate->tax_rate_percent = $request->tax_rate_percent;
+        $taxrate->save();
+
+        $request->session()->flash('alert-success', 'Tax Rate successfully Updated!');
+        return redirect('taxrates');
     }
 
     /**
@@ -82,8 +126,12 @@ class TaxRateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        $taxrate = TaxRate::find($id);
+
+        $taxrate->delete();
+        $request->session()->flash('alert-success', 'Tax Rate successfully Deleted!');
+        return redirect('taxrate');
     }
 }

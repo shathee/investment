@@ -40,16 +40,11 @@
                                     <td>{{$taxrate->tax_rate_taka}}</td>
                                     <td>{{$taxrate->tax_rate_percent}}</td>
                                     <td>
-                                        <a href="{{ url('taxrate/'.$taxrate->id.'/edit') }}">
-                                            <button type="button" class="btn btn-default" aria-label="Left Align">
-                                                EDIT
-                                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                            </button>
-                                        </a>
+
 
                                     </td>
                                     <td>
-                                        <a class="confirm_delete" data-title="Confirm Action" href="{{ url('taxrate/'.$taxrate->id.'/delete') }}">
+                                        <a class="confirm_delete" data-title="Confirm Action" href="{{ url('taxrates/'.$taxrate->id.'/delete') }}">
                                             <button type="button" class="btn btn-danger btn-md"
                                                     data-toggle="" data-target="">
                                                      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>

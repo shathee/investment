@@ -12,7 +12,7 @@ class CreateFundlistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fundlists', function (Blueprint $table) {
+        Schema::create('fund_lists', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('branch_id');
             $table->string('fund_name');
@@ -20,6 +20,7 @@ class CreateFundlistsTable extends Migration
             $table->string('fund_acc_no');
             $table->float('fund_start_balance');
             $table->date('fund_start_date');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateFundlistsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('fundlists');
+        Schema::drop('fund_lists');
     }
 }

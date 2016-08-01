@@ -22,6 +22,11 @@ class Branch extends Model
         return ucfirst($value);
     }
 
+    public function funds()
+    {
+        return $this->hasMany('App\Models\FundList');
+    }
+
 
 
 }

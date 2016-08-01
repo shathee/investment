@@ -76,15 +76,27 @@ Route::get('tax/{id}/edit', 'TaxController@edit');
 Route::post('tax/{id}/edit', 'TaxController@update');
 Route::get('tax/{id}/delete', 'TaxController@destroy');
 
-Route::get('taxtrates', 'TaxRateController@index');
-Route::post('taxtrates', 'TaxRateController@store');
-Route::get('taxtrates/create', 'TaxRateController@create');
-Route::get('taxtrates/{id}', 'TaxRateController@show');
-Route::get('taxtrates/{id}/edit', 'TaxRateController@edit');
-Route::post('taxtrates/{id}/edit', 'TaxRateController@update');
-Route::get('taxtrates/{id}/delete', 'TaxRateController@destroy');
+Route::get('taxrates', 'TaxRateController@index');
+Route::post('taxrates', 'TaxRateController@store');
+Route::get('taxrates/create', 'TaxRateController@create');
+Route::get('taxrates/{id}', 'TaxRateController@show');
+Route::get('taxrate/{id}/edit', 'TaxRateController@edit');
+Route::post('taxrates/{id}/edit', 'TaxRateController@update');
+Route::get('taxrates/{id}/delete', 'TaxRateController@destroy');
+
+Route::get('fundlist', 'FundListController@index');
+Route::post('fundlist', 'FundListController@store');
+Route::get('fundlist/create', 'FundListController@create');
+Route::get('fundlist/{id}', 'FundListController@show');
+Route::get('fundlist/{id}/edit', 'FundListController@edit');
+Route::post('fundlist/{id}/edit', 'FundListController@update');
+Route::get('fundlist/{id}/delete', 'FundListController@destroy');
 
 
+
+
+Route::get('trash','TrashController@index' );
+Route::get('trash/taxrate','TrashController@taxrate' );
 
 
 Route::get('tests', function () {

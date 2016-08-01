@@ -32,7 +32,7 @@
                             @forelse ($branchs as $branch)
                                 <tr>
                                     <td>{{$branch->id}}</td>
-                                    <td><a href="branch/{{$branch->id}}" >{{$branch->branch_name}}</a></td>
+                                    <td><a href="{{url('branch/').$branch->id}}" >{{$branch->branch_name}}</a></td>
                                     <td>{{$branch->bank['bank_name']}}</td>
                                     <td>{{$branch->branch_add}}</td>
                                     <td>

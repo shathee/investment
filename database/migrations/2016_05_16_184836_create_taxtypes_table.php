@@ -12,7 +12,7 @@ class CreateTaxtypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tax_types', function (Blueprint $table) {
+        Schema::create('taxtypes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tax_type_name');
             $table->string('deduct_on');
@@ -29,6 +29,6 @@ class CreateTaxtypesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tax_types');
+        Schema::drop('taxtypes');
     }
 }
